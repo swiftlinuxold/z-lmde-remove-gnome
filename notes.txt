@@ -1,0 +1,8 @@
+NOTES ON REMOVING GNOME
+
+Comparing the package list of LMDE with GNOME with the package list of LMDE with Xfce may help.
+Packages included in the GNOME version but not the Xfce version are ones to consider cutting.
+
+To get the list of installed packages, the command is "dpkg --get-selections>selections.txt".
+
+There should be a way to automate the process of comparing the two package lists.
