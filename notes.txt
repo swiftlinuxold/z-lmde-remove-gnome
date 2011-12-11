@@ -6,3 +6,10 @@ Packages included in the GNOME version but not the Xfce version are ones to cons
 To get the list of installed packages, the command is "dpkg --get-selections>selections.txt".
 
 There should be a way to automate the process of comparing the two package lists.
+
+
+UPDATE:
+Package lists for LDME with GNOME and LMDE with XFCE have been pulled from their respective locations and are currently
+being compared to determine the most significant differences regarding packages. A comparison will be provided for 
+referencing purposes. The best way to automoate package comparison will be provided as well. The diff tool will probably
+be the best option.
