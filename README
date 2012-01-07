@@ -1,1 +1,5 @@
-This is the repository for removing GNOME.  Other repositories replace GNOME with a lighter desktop environment.
+This is the repository for removing GNOME.  
+
+Other repositories replace GNOME with a lighter desktop environment.
+
+The deborphan command is handy for identifying packages that can be deleted.
