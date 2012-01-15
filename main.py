@@ -105,6 +105,9 @@ os.system('apt-get purge -y shiki-colors-metacity-theme')
 # Keeping system-config-printer-udev due to several dependants
 os.system('apt-get purge -y tomboy')
 
+# Remove remaining Nautilus packages
+os.system('apt-get purge -y nautilus-gksu')
+
 # Remove Metacity packages
 # In Synaptic, go to Status -> Installed, enter "metacity" in quick filter
 os.system('apt-get purge -y compiz-gtk')
@@ -177,31 +180,6 @@ os.system('apt-get purge -y gcalctool')
 os.system('apt-get purge -y gnome-ppp network-manager-pptp-gnome')
 # Section: video
 os.system('apt-get purge -y gnome-mplayer gecko-mediaplayer')
-
-      
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
-# Remove remaining Nautilus packages
-# os.system('apt-get purge -y nautilus-gksu')
-
-# os.system('apt-get purge -y ')
-
-
-
 
 print 'FINISHED REMOVING GNOME PACKAGES'
 print '================================'
