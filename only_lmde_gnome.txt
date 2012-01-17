@@ -33,7 +33,6 @@ libedata-book1.2-8
 libedata-cal1.2-10
 libedataserverui1.2-11
 libevolution
-libfam0
 libgtkhtml-editor-3.14-0
 libgtkhtml-editor-3.14-common
 libgweather-common

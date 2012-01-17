@@ -31,6 +31,9 @@ def purge_packages(file):
     for line in open(file):
         os.system('apt-get purge -y ' + line)
 
+# The only_lmde_gnome.txt file in this repository contains the list of packages in
+# LMDE GNOME but not LMDE Xfce.
+# NOTE: libfam0 is kept because removing it causes a time-consuming upgrade of LibreOffice.
 purge_packages(dir_develop + "/ui-gnome/only_lmde_gnome.txt")
 
 print 'FINISHED REMOVING GNOME PACKAGES'
