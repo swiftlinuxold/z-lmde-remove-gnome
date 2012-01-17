@@ -29,6 +29,7 @@ print 'BEGIN REMOVING GNOME PACKAGES'
 
 def purge_packages(file):
     for line in open(file):
+        print 'PURGING ' + line
         os.system('apt-get purge -y ' + line)
 
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
