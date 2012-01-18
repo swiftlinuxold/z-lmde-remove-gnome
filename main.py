@@ -37,5 +37,119 @@ def purge_packages(file):
 # NOTE: libfam0 is kept because removing it causes a time-consuming upgrade of LibreOffice.
 purge_packages(dir_develop + "/ui-gnome/only_lmde_gnome.txt")
 
+# Use the command "deborphan (package name)" to see dependants (includes recommended/suggested)
+# Use the command "deborphan -n (package name)" to see dependants (ignores recommended/suggested)
+
+# Remove Compiz packages
+os.system('apt-get purge -y libdecoration0')
+
+# Remove Totem packages (media player)
+os.system('apt-get purge -y totem totem-common totem-mozilla totem-plugins mint-meta-codecs')
+os.system('apt-get purge -y gstreamer0.10-pitfdll libtotem-plparser17')
+
+# No Metacity packages remain
+
+# Remove selected Nautlius packages
+os.system('apt-get purge -y nautilus-gksu nautilus-open-terminal nautilus-sendto')
+
+# Remove Pidgin packages (chat)
+os.system('apt-get purge -y pidgin pidgin-data pidgin-facebookchat libpurple0 libpurple-bin')
+
+# Remove Banshee (media player)
+os.system('apt-get purge -y banshee')
+
+# Remove Brasero
+os.system('apt-get purge -y brasero brasero-common libbrasero-media0')
+
+# Remove EOG (graphics viewer)
+os.system('apt-get purge -y eog')
+
+# Remove EVince (pdf viewer)
+os.system('apt-get purge -y evince evince-common libevince2')
+
+# Remove Evolution and dependants (mail suite)
+os.system('apt-get purge -y python-evolution evolution-data-server-common libedataserverui1.2-8')
+os.system('apt-get purge -y libcamel1.2-14 libebook1.2-9 libebook1.2-9 libedata-book1.2-2')
+os.system('apt-get purge -y libcamel1.2-19 libebook1.2-10 deskbar-applet deskbar-applet mintmenu')
+os.system('apt-get purge -y libebackend1.2-0 libedata-cal1.2-7 libecal1.2-8')
+os.system('apt-get purge -y libedataserver1.2-13 libedataserver1.2-14 libegroupwise1.2-13')
+
+
+# Remove GCalc (calculator)
+os.system('apt-get purge -y gcalctool')
+
+# Remove GEdit (editor)
+os.system('apt-get purge -y gedit gedit-common')
+
+# Remove Gmenu (menu editor)
+os.system('apt-get purge -y gnome-menus')
+
+# Remove GNOME About
+os.system('apt-get purge -y gnome-about')
+
+# Remove GNOME Dictionary
+os.system('apt-get purge -y gnome-dictionary')
+
+# Remove GNOME NetTool
+os.system('apt-get purge -y gnome-nettool')
+
+# Remove GNOME PPP
+os.system('apt-get purge -y gnome-ppp')
+
+# Remove GNOME Search
+os.system('apt-get purge -y gnome-search-tool')
+
+# Remove GNOME Sound Recorder
+os.system('apt-get purge -y gnome-media')
+
+# Remove GNOME System Log
+os.system('apt-get purge -y gnome-system-log')
+
+# Remove GNOME System Monitor
+os.system('apt-get purge -y gnome-system-monitor')
+
+# Remove GNOME User Share
+os.system('apt-get purge -y gnome-user-share')
+
+#Remove gthumb (thumbnails)
+os.system('apt-get purge -y gthumb gthumb-data')
+     
+# Remove gtk2-engines
+os.system('apt-get purge -y gtk2-engines gtk2-engines-aurora gtk2-engines-candido')
+
+# Remove Tomboy (note taking)
+os.system('apt-get purge -y tomboy')
+
+# Applications to keep:
+# Baobab
+# GNOME-MPlayer
+# Gecko Media Player
+
+
+      
+
+
+
+# Remove GNOME Desktop Environment (universe) and dependants
+os.system('apt-get purge -y mint-x-icons mint-x-theme mint-artwork-debian')
+
+# Remove GNOME Desktop Environment and dependants
+# To see the list of installed packages, open Synaptic and go to Sections -> 
+# GNOME Desktop Environment and sort by the first column.
+# os.system('apt-get purge -y ')
+os.system('apt-get purge -y at-spi python-pyatspi')
+# Keep baobab for utility until a lighter alternative can be found
+
+os.system('apt-get purge -y capplets-data')
+
+      
+      
+
+     
+      
+
+      
+
+
 print 'FINISHED REMOVING GNOME PACKAGES'
 print '================================'

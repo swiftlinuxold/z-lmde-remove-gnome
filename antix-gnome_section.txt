@@ -1,0 +1,20 @@
+listed in Synaptic under section gnome
+cheese
+cheese-common
+cups-pk-helper
+dmz-cursor-theme
+file-roller
+gcolor2
+gjots2
+gnome-icon-theme
+gnome-keyring
+gnome-mime-data
+gparted
+gsettings-desktop-schemas
+gtk2-engines
+gtk2-engines-ubuntulooks
+libbonobo2-common
+policykit-1-gnome
+system-config-printer
+system-config-printer-udev
+zenity
