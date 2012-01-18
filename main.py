@@ -87,11 +87,17 @@ os.system('apt-get purge -y gnome-menus')
 # Remove GNOME About
 os.system('apt-get purge -y gnome-about')
 
+# Remove GNOME Character Map
+os.system('apt-get purge -y gucharmap')
+
 # Remove GNOME Dictionary
 os.system('apt-get purge -y gnome-dictionary')
 
 # Remove GNOME NetTool
 os.system('apt-get purge -y gnome-nettool')
+
+# Remove GNOME Network Manager
+os.system('apt-get purge -y network-manager-gnome')
 
 # Remove GNOME PPP
 os.system('apt-get purge -y gnome-ppp')
@@ -126,13 +132,15 @@ os.system('apt-get purge -y tomboy')
 # Remove Yelp
 os.system('apt-get purge -y gnome-doc-utils yelp')
 
-      
-
-
 # Applications to keep:
 # Baobab
 # GNOME-MPlayer
 # Gecko Media Player
+
+
+     
+
+
 
 
       
@@ -147,11 +155,33 @@ os.system('apt-get purge -y mint-x-icons mint-x-theme mint-artwork-debian')
 # GNOME Desktop Environment and sort by the first column.
 # os.system('apt-get purge -y ')
 os.system('apt-get purge -y at-spi python-pyatspi')
-# Keep baobab for utility until a lighter alternative can be found
-
 os.system('apt-get purge -y capplets-data')
+os.system('apt-get purge -y gnome-audio')
+os.system('apt-get purge -y gnome-desktop-data')
+os.system('apt-get purge -y gnome-media-common libgnome-media0')
+os.system('apt-get purge -y gnome-mime-data') # Also removes other packages
+os.system('apt-get purge -y gnome-session-bin gnome-session-canberra gnome-session-common')
+os.system('apt-get purge -y gnome-settings-daemon')
+os.system('apt-get purge -y gnome-system-tools')
+os.system('apt-get purge -y gvfs gvfs-bin gvfs-backends')
+os.system('apt-get purge -y libbonobo2-0 libbonobo2-common libgnome-speech7 libatspi1.0-0')
+os.system('apt-get purge -y libgnome-menu2 libslab0a libgnome-window-settings1 python-gmenu')
 
       
+      
+      
+      
+
+
+      
+      
+
+
+      
+
+
+# os.system('apt-get purge -y ')
+# os.system('apt-get purge -y ')      
       
 
      
