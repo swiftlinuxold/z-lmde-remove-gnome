@@ -166,8 +166,10 @@ os.system('apt-get purge -y gnome-system-tools')
 os.system('apt-get purge -y gvfs gvfs-bin gvfs-backends')
 os.system('apt-get purge -y libbonobo2-0 libbonobo2-common libgnome-speech7 libatspi1.0-0')
 os.system('apt-get purge -y libgnome-menu2 libslab0a libgnome-window-settings1 python-gmenu')
-
+os.system('apt-get purge -y policykit-1-gnome libpolkit-gtk-1-0')
+os.system('apt-get purge -y zenity mintnanny') # Zenity and MintNanny
       
+
       
       
       
@@ -182,13 +184,10 @@ os.system('apt-get purge -y libgnome-menu2 libslab0a libgnome-window-settings1 p
 
 # os.system('apt-get purge -y ')
 # os.system('apt-get purge -y ')      
-      
 
-     
-      
-
-      
-
+if os.path.exists('/usr/share/icons/gnome/icon-theme.cache'):
+    print ('Removing /usr/share/icons/gnome/icon-theme.cache')
+    os.remove('/usr/share/icons/gnome/icon-theme.cache')
 
 print 'FINISHED REMOVING GNOME PACKAGES'
 print '================================'
