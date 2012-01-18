@@ -117,6 +117,9 @@ os.system('apt-get purge -y gthumb gthumb-data')
 # Remove gtk2-engines
 os.system('apt-get purge -y gtk2-engines gtk2-engines-aurora gtk2-engines-candido')
 
+# Remove Seahorse
+os.system('apt-get purge -y seahorse')
+
 # Remove Tomboy (note taking)
 os.system('apt-get purge -y tomboy')
 
