@@ -120,6 +120,12 @@ os.system('apt-get purge -y gtk2-engines gtk2-engines-aurora gtk2-engines-candid
 # Remove Tomboy (note taking)
 os.system('apt-get purge -y tomboy')
 
+# Remove Yelp
+os.system('apt-get purge -y gnome-doc-utils yelp')
+
+      
+
+
 # Applications to keep:
 # Baobab
 # GNOME-MPlayer
