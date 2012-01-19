@@ -93,6 +93,9 @@ os.system('apt-get purge -y gucharmap')
 # Remove GNOME Dictionary
 os.system('apt-get purge -y gnome-dictionary')
 
+# Remove GNOME Disk Utility
+os.system('apt-get purge -y gnome-disk-utility')
+
 # Remove GNOME NetTool
 os.system('apt-get purge -y gnome-nettool')
 
