@@ -37,7 +37,7 @@ def purge_packages(file):
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
 # NOTE: libfam0 is kept because removing it causes a time-consuming upgrade of LibreOffice.
-purge_packages(dir_develop + "/ui-gnome/only_lmde_gnome.txt")
+purge_packages(dir_develop + "/remove-gnome/only_lmde_gnome.txt")
 
 # Use the command "deborphan (package name)" to see dependants (includes recommended/suggested)
 # Use the command "deborphan -n (package name)" to see dependants (ignores recommended/suggested)
