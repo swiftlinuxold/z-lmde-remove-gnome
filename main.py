@@ -104,9 +104,6 @@ os.system('apt-get purge -y gnome-nettool')
 # Remove GNOME Network Manager
 os.system('apt-get purge -y network-manager-gnome')
 
-# Remove GNOME PPP
-os.system('apt-get purge -y gnome-ppp')
-
 # Remove GNOME Search
 os.system('apt-get purge -y gnome-search-tool')
 
