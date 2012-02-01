@@ -165,7 +165,7 @@ os.system('apt-get purge -y gnome-session-bin gnome-session-canberra gnome-sessi
 os.system('apt-get purge -y gnome-settings-daemon')
 os.system('apt-get purge -y gnome-system-tools')
 os.system('apt-get purge -y policykit-1-gnome libpolkit-gtk-1-0')
-os.system('apt-get purge -y zenity mintnanny') # Zenity and MintNanny
+os.system('apt-get purge -y mintnanny') # MintNanny
       
 
       
