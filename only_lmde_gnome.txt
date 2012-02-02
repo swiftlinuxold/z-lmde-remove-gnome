@@ -44,7 +44,6 @@ libreoffice-style-galaxy
 libseed0
 metacity
 metacity-common
-mint-info-debian
 nautilus
 nautilus-actions
 nautilus-data
