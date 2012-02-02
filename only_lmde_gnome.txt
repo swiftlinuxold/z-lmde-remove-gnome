@@ -45,7 +45,6 @@ libseed0
 metacity
 metacity-common
 mint-info-debian
-mint-meta-debian
 nautilus
 nautilus-actions
 nautilus-data
