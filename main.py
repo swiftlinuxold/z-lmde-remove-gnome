@@ -135,6 +135,9 @@ os.system('apt-get purge -y tomboy')
 # Remove Yelp
 os.system('apt-get purge -y gnome-doc-utils yelp')
 
+# Remove Zenity
+os.system('apt-get purge -y zenity')
+
 # Applications to keep:
 # Baobab
 # GNOME-MPlayer
