@@ -142,7 +142,7 @@ purge_packages ('gnome-doc-utils yelp')
 purge_packages ('zenity')
 
 # Remove GNOME Desktop Environment (universe) and dependants
-purge_packages ('mint-x-icons mint-x-theme mint-artwork-debian')
+purge_packages ('mint-x-icons mint-x-theme')
 
 # Remove GNOME Desktop Environment and dependants
 # To see the list of installed packages, open Synaptic and go to Sections -> 
