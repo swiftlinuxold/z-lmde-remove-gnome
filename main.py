@@ -28,15 +28,16 @@ else:
 
 print '============================='
 print 'BEGIN REMOVING GNOME PACKAGES'
+print 'NOTE: The screen output is suppressed due to excessive volume.'
 
 def purge_packages_file (file):
     for line in open(file):
-        print 'PURGING ' + line
-        os.system('apt-get purge -y ' + line)
+        os.system ('echo PURGING ' + line)
+        os.system('apt-get purge -qq ' + line)
         
 def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
-    os.system ('apt-get purge -y ' + packages)
+    os.system ('apt-get purge -qq ' + packages)
 
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
