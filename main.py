@@ -26,9 +26,9 @@ else:
 
 # THIS IS THE SCRIPT FOR REMOVING GNOME PACKAGES
 
-print '============================='
-print 'BEGIN REMOVING GNOME PACKAGES'
-print 'NOTE: The screen output is suppressed due to excessive volume.'
+os.system ('echo =============================')
+os.system ('echo BEGIN REMOVING GNOME PACKAGES')
+os.system ('echo  NOTE: The screen output is suppressed due to excessive volume.')
 
 def purge_packages_file (file):
     for line in open(file):
@@ -38,6 +38,10 @@ def purge_packages_file (file):
 def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
     os.system ('apt-get purge -qq ' + packages)
+
+# Purge GDM before purging libweather-common to avoid being asked about what to do with
+# files in /etc/gdm3
+purge_packages ('gdm3')
 
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
@@ -168,5 +172,5 @@ if os.path.exists('/usr/share/icons/gnome/icon-theme.cache'):
     print ('Removing /usr/share/icons/gnome/icon-theme.cache')
     os.remove('/usr/share/icons/gnome/icon-theme.cache')
 
-print 'FINISHED REMOVING GNOME PACKAGES'
-print '================================'
+os.system ('echo FINISHED REMOVING GNOME PACKAGES')
+os.system ('echo ================================')
