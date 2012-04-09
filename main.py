@@ -106,9 +106,6 @@ purge_packages ('gnome-disk-utility')
 # Remove GNOME NetTool
 purge_packages ('gnome-nettool')
 
-# Remove GNOME Network Manager
-purge_packages ('network-manager-gnome')
-
 # Remove GNOME Search
 purge_packages ('gnome-search-tool')
 
@@ -163,6 +160,7 @@ purge_packages ('mintnanny') # MintNanny
 # Baobab
 # GNOME-MPlayer
 # Gecko Media Player     
+# GNOME Network Manager
       
 if os.path.exists('/usr/share/icons/gnome/icon-theme.cache'):
     print ('Removing /usr/share/icons/gnome/icon-theme.cache')
