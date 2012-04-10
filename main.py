@@ -82,6 +82,19 @@ purge_packages ('libcamel1.2-19 libebook1.2-10 deskbar-applet deskbar-applet min
 purge_packages ('libebackend1.2-0 libedata-cal1.2-7 libecal1.2-8')
 purge_packages ('libedataserver1.2-13 libedataserver1.2-14 libegroupwise1.2-13')
 
+# Remove other Evolution packages
+purge_packages ('libbeagle1 python-beagle')
+purge_packages ('libcamel-1.2-29 libebook-1.2-12 libedata-book-1.2-11')
+purge_packages ('libebackend-1.2-1 libedata-cal-1.2-13 libecal-1.2-10')
+purge_packages ('libedataserver-1.2-15')
+purge_packages ('libgdata1.2-1 libgdata-google1.2-1')
+
+      
+
+      
+
+
+
 # Remove GCalc (calculator)
 purge_packages ('gcalctool')
 
