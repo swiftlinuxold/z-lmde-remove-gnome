@@ -26,14 +26,17 @@ else:
 
 # THIS IS THE SCRIPT FOR REMOVING GNOME PACKAGES
 
-os.system ('echo =============================')
-os.system ('echo BEGIN REMOVING GNOME PACKAGES')
-os.system ('echo  NOTE: The screen output is suppressed due to excessive volume.')
+def message (string):
+    os.system ('echo ' + string)
 
-def purge_packages_file (file):
-    for line in open(file):
-        os.system ('echo PURGING ' + line)
-        os.system('apt-get purge -qq ' + line)
+message ('=============================')
+message ('BEGIN REMOVING GNOME PACKAGES')
+message ('NOTE: The screen output is suppressed due to excessive volume.')
+
+def purge_packages_file (filename):
+    list_with_newlines = open(filename, 'r').read()
+    list_with_spaces = list_with_newlines.replace ('\n', ' ')
+    os.system ('apt-get purge -qq ' + list_with_spaces)
         
 def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
@@ -43,6 +46,7 @@ def purge_packages (packages):
 # LMDE GNOME but not LMDE Xfce.
 # NOTE: libfam0 is kept because removing it causes a time-consuming upgrade of LibreOffice.
 # NOTE: mint-meta-debian and mint-info-debian are kept because removing them takes out /usr/local/bin
+message ('Removing packages that come with LMDE GNOME but not LMDE Xfce')
 purge_packages_file (dir_develop + "/remove-gnome/only_lmde_gnome.txt")
 
 # Use the command "deborphan (package name)" to see dependants (includes recommended/suggested)
