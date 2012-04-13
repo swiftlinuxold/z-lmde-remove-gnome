@@ -42,6 +42,9 @@ def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
     os.system ('apt-get purge -qq ' + packages)
 
+# Remove Compiz packages
+purge_packages ('gdm3')
+
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
 # NOTE: libfam0 is kept because removing it causes a time-consuming upgrade of LibreOffice.
