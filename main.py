@@ -26,6 +26,9 @@ else:
 
 # THIS IS THE SCRIPT FOR REMOVING GNOME PACKAGES
 
+# Use the command "deborphan (package name)" to see dependants (includes recommended/suggested)
+# Use the command "deborphan -n (package name)" to see dependants (ignores recommended/suggested)
+
 def message (string):
     os.system ('echo ' + string)
 
@@ -42,152 +45,128 @@ def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
     os.system ('apt-get purge -qq ' + packages)
 
-# Remove Compiz packages
-purge_packages ('gdm3')
-
+# ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
-# NOTE: libfam0 is kept because removing it causes a time-consuming upgrade of LibreOffice.
-# NOTE: mint-meta-debian and mint-info-debian are kept because removing them takes out /usr/local/bin
 message ('Removing packages that come with LMDE GNOME but not LMDE Xfce')
-purge_packages_file (dir_develop + "/remove-gnome/only_lmde_gnome.txt")
-
-# Use the command "deborphan (package name)" to see dependants (includes recommended/suggested)
-# Use the command "deborphan -n (package name)" to see dependants (ignores recommended/suggested)
-
-# Remove Compiz packages
-purge_packages ('libdecoration0')
-
-# Remove Totem packages (media player)
-purge_packages ('totem totem-common totem-mozilla totem-plugins mint-meta-codecs')
-purge_packages ('gstreamer0.10-pitfdll libtotem-plparser17')
-
-# No Metacity packages remain
-
-# Remove selected Nautlius packages
-purge_packages ('nautilus-gksu nautilus-open-terminal nautilus-sendto')
-
-# Remove Pidgin packages (chat)
-purge_packages ('pidgin pidgin-data pidgin-facebookchat libpurple0 libpurple-bin')
-
-# Remove Banshee (media player)
-purge_packages ('banshee')
-
-# Remove Brasero
-purge_packages ('brasero brasero-common libbrasero-media0')
-
-# Remove EOG (graphics viewer)
-purge_packages ('eog')
-
-# Remove EVince (pdf viewer)
-purge_packages ('evince evince-common libevince2')
-
-# Remove Evolution and dependants (mail suite)
-purge_packages ('python-evolution evolution-data-server-common libedataserverui1.2-8')
-purge_packages ('libcamel1.2-14 libebook1.2-9 libebook1.2-9 libedata-book1.2-2')
-purge_packages ('libcamel1.2-19 libebook1.2-10 deskbar-applet deskbar-applet mintmenu')
-purge_packages ('libebackend1.2-0 libedata-cal1.2-7 libecal1.2-8')
-purge_packages ('libedataserver1.2-13 libedataserver1.2-14 libegroupwise1.2-13')
-
-# Remove other Evolution packages
-purge_packages ('libbeagle1 python-beagle')
-purge_packages ('libcamel-1.2-29 libebook-1.2-12 libedata-book-1.2-11')
-purge_packages ('libebackend-1.2-1 libedata-cal-1.2-13 libecal-1.2-10')
-purge_packages ('libedataserver-1.2-15')
-purge_packages ('libgdata1.2-1 libgdata-google1.2-1')
-
-      
-
-      
-
-
-
-# Remove GCalc (calculator)
-purge_packages ('gcalctool')
-
-# Remove GEdit (editor)
-purge_packages ('gedit gedit-common')
-
-# Remove Gmenu (menu editor)
-purge_packages ('gnome-menus')
-
-# Remove GNOME About
-purge_packages ('gnome-about')
-
-# Remove GNOME Character Map
-purge_packages ('gucharmap')
-
-# Remove GNOME Dictionary
-purge_packages ('gnome-dictionary')
-
-# Remove GNOME Disk Utility
-purge_packages ('gnome-disk-utility')
-
-# Remove GNOME NetTool
-purge_packages ('gnome-nettool')
-
-# Remove GNOME Search
-purge_packages ('gnome-search-tool')
+purge_packages_file (dir_develop + "/remove-gnome/remove-deb/only_lmde_gnome.txt")
+# ==========
+message ('Removing Brasero packages')
+purge_packages ('brasero brasero-common libbrasero-media3-1')
+# ==========
+# No Compiz packages remain
+# ==========
+message ('Removing Evince packages')
+purge_packages ('evince evince-common')
+purge_packages ('gir1.2-evince-3.0 gir1.2-sushi-1.0')
+purge_packages ('libevince2 libevince3-3 libsushi-1.0-0')
+# ==========
+message ('Removing Evolution packages')
+purge_packages_file (dir_develop + "/remove-gnome/remove-deb/evolution.txt")
+# ==========
+message ('Removing remaining MATE packages')
+purge_packages ('libmateconf libmatecorba libmatenotify mate-notification-daemon')
+# ==========
+message ('Removing MDM packages')
+purge_packages ('mdm mint-mdm-themes mate-session-manager')
+# ==========
+message ('Removing remaining Metacity packages')
+purge_packages ('murrine-themes')
+# ==========
+message ('Removing remaining selected Nautilus packages')
+purge_packages ('nautilus gnome-sushi nautilus-open-terminal')
+# ==========
+message ('Removing extra GNOME media players')      
+purge_packages ('banshee banshee-extension-soundmenu')
 
 # Remove GNOME Sound Recorder
 purge_packages ('gnome-media')
 
-# Remove GNOME System Log
-purge_packages ('gnome-system-log')
-
-# Remove GNOME System Monitor
-purge_packages ('gnome-system-monitor')
-
-# Remove GNOME User Share
-purge_packages ('gnome-user-share')
-
+message ('Removing Totem packages')
+purge_packages ('totem totem-common')
+purge_packages ('gir1.2-totem-plparser-1.0 gir1.2-totem-1.0')
+purge_packages ('gstreamer0.10-pitfdll mint-meta-codecs')
+purge_packages ('libtotem-plparser17 libtotem0')
+# ==========
+# Removing other GNOME packages
+# Remove Gmenu (menu editor)
+purge_packages ('gnome-menus')
+# Remove GNOME Character Map
+purge_packages ('gucharmap')
 # Remove gthumb (thumbnails)
 purge_packages ('gthumb gthumb-data')
+
+# ==========
+# Removing packages classified in Synaptic in section "gnome"
+purge_packages ('at-spi')
+purge_packages ('cups-pk-helper')
+purge_packages ('gnome-desktop-data')  
+purge_packages ('gnome-desktop3-data libgnome-desktop-3-2 gnome-settings-daemon')    
+purge_packages ('gnome-icon-theme-symbolic')
+purge_packages ('gnome-media-common libgnome-media0')
+purge_packages ('gnome-mime-data libgnomevfs2-common')
+purge_packages ('gnome-session-bin')
+purge_packages ('gnome-session-common gnome-sushi-common')
+purge_packages ('gtk2-engines mint-artwork-debian')
+purge_packages ('gtk2-engines-aurora')
+purge_packages ('gtk2-engines-candido')
+purge_packages ('gtk3-engines-unico')
+
+
+
+# Remove Pidgin packages (chat)
+#purge_packages ('pidgin pidgin-data pidgin-facebookchat libpurple0 libpurple-bin')
+
+      
+
+
+
+
      
 # Remove gtk2-engines
-purge_packages ('gtk2-engines gtk2-engines-aurora gtk2-engines-candido')
+#purge_packages ('gtk2-engines gtk2-engines-aurora gtk2-engines-candido')
 
 # Remove Seahorse
-purge_packages ('seahorse')
+#purge_packages ('seahorse')
 
 # Remove Tomboy (note taking)
-purge_packages ('tomboy')
+#purge_packages ('tomboy')
 
 # Remove Yelp
-purge_packages ('gnome-doc-utils yelp')
+#purge_packages ('gnome-doc-utils yelp')
 
 # Remove Zenity
-purge_packages ('zenity')
+#purge_packages ('zenity')
 
 # Remove GNOME Desktop Environment (universe) and dependants
-purge_packages ('mint-x-icons mint-x-theme')
+#purge_packages ('mint-x-icons mint-x-theme')
 
 # Remove GNOME Desktop Environment and dependants
 # To see the list of installed packages, open Synaptic and go to Sections -> 
 # GNOME Desktop Environment and sort by the first column.
-purge_packages ('at-spi python-pyatspi')
-purge_packages ('capplets-data')
-purge_packages ('gnome-audio')
-purge_packages ('gnome-desktop-data')
-purge_packages ('gnome-media-common libgnome-media0')
-purge_packages ('gnome-session-bin gnome-session-canberra gnome-session-common')
-purge_packages ('gnome-settings-daemon')
-purge_packages ('gnome-system-tools')
-purge_packages ('policykit-1-gnome libpolkit-gtk-1-0')
-purge_packages ('mintnanny') # MintNanny      
+
+#purge_packages ('capplets-data')
+#purge_packages ('gnome-audio')
+#purge_packages ('gnome-desktop-data')
+#purge_packages ('gnome-media-common libgnome-media0')
+#purge_packages ('gnome-session-bin gnome-session-canberra gnome-session-common')
+#purge_packages ('gnome-settings-daemon')
+#purge_packages ('gnome-system-tools')
+#purge_packages ('policykit-1-gnome libpolkit-gtk-1-0')
+#purge_packages ('mintnanny') # MintNanny      
 
 # GNOME Network Manager
-purge_packages ('network-manager network-manager-pptp network-manager-pptp-gnome') 
-purge_packages ('libnm-glib-vpn1 libnm-glib2 libnm-glib4 libnm-util1 libnm-util2')
+#purge_packages ('network-manager network-manager-pptp network-manager-pptp-gnome') 
+#purge_packages ('libnm-glib-vpn1 libnm-glib2 libnm-glib4 libnm-util1 libnm-util2')
 
 # Applications to keep:
 # Baobab
 # GNOME-MPlayer
 # Gecko Media Player     
       
-if os.path.exists('/usr/share/icons/gnome/icon-theme.cache'):
-    print ('Removing /usr/share/icons/gnome/icon-theme.cache')
-    os.remove('/usr/share/icons/gnome/icon-theme.cache')
+#if os.path.exists('/usr/share/icons/gnome/icon-theme.cache'):
+    #print ('Removing /usr/share/icons/gnome/icon-theme.cache')
+    #os.remove('/usr/share/icons/gnome/icon-theme.cache')
 
 os.system ('echo FINISHED REMOVING GNOME PACKAGES')
 os.system ('echo ================================')
