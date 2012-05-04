@@ -36,6 +36,10 @@ message ('=============================')
 message ('BEGIN REMOVING GNOME PACKAGES')
 message ('NOTE: The screen output is suppressed due to excessive volume.')
 
+def add_pkg (packages):
+    os.system ('echo INSTALLING ' + packages)
+    os.system ('apt-get install -qq ' + packages)
+
 def purge_packages_file (filename):
     list_with_newlines = open(filename, 'r').read()
     list_with_spaces = list_with_newlines.replace ('\n', ' ')
@@ -168,5 +172,9 @@ purge_packages ('gtk3-engines-unico')
     #print ('Removing /usr/share/icons/gnome/icon-theme.cache')
     #os.remove('/usr/share/icons/gnome/icon-theme.cache')
 
-os.system ('echo FINISHED REMOVING GNOME PACKAGES')
-os.system ('echo ================================')
+message ('Adding LightDM, Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
+message ('Configuration comes later')
+add_pkg ('lightdm geany icewm rox-filer pcmanfm')
+
+message ('FINISHED REMOVING GNOME PACKAGES')
+message ('================================')
