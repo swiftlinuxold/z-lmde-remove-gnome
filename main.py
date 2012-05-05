@@ -50,9 +50,16 @@ def purge_packages (packages):
     os.system ('apt-get purge -qq ' + packages)
 
 # ==========
-message ('Disabling MDM before deleting it')
-message ('Skipping this step prevents the system from properly booting up without MDM')
+message ('Preparing for the deletion of MDM display manager')
+message ('These steps are needed to allow the system to properly boot up without MDM and GNOME')
+message ('')
+message ('Disabling MDM')
 os.system ('update-rc.d -f mdm remove')
+message ('Adding LightDM, Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
+message ('Configuration comes later')
+add_pkg ('lightdm geany icewm rox-filer pcmanfm')
+message ('Enabling LightDM')
+os.system ('update-rc.d -f lightdm defaults')
 # ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
@@ -175,10 +182,6 @@ purge_packages ('gtk3-engines-unico')
 #if os.path.exists('/usr/share/icons/gnome/icon-theme.cache'):
     #print ('Removing /usr/share/icons/gnome/icon-theme.cache')
     #os.remove('/usr/share/icons/gnome/icon-theme.cache')
-
-message ('Adding LightDM, Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
-message ('Configuration comes later')
-add_pkg ('lightdm geany icewm rox-filer pcmanfm')
 
 message ('FINISHED REMOVING GNOME PACKAGES')
 message ('================================')
