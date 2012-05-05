@@ -193,7 +193,7 @@ os.system ('mkdir /usr/local/bin')
 message ('Adding wallpaper, needed for the LightDM greeter to work')
 os.system ('python ' + dir_develop + '/ui-config-wallpaper/main.py')
 message ('Enabling LightDM')
-os.system ('update-rc.d -f lightdm defaults')
+os.system ('dpkg-reconfigure lightdm')
 
 message ('FINISHED REMOVING GNOME PACKAGES')
 message ('================================')
