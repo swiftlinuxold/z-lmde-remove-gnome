@@ -183,9 +183,11 @@ purge_packages ('gtk3-engines-unico')
     #os.remove('/usr/share/icons/gnome/icon-theme.cache')
 
 # ==========
-message ('Adding LightDM, Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
+message ('Adding Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
 message ('Configuration comes later')
-add_pkg ('lightdm geany icewm rox-filer pcmanfm')
+add_pkg ('geany icewm rox-filer pcmanfm')
+message ('Adding and configuring LightDM')
+os.system ('python ' + dir_develop + '/ui-login/main.py')
 message ('Enabling LightDM')
 os.system ('update-rc.d -f lightdm defaults')
 
