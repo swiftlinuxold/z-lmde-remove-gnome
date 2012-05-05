@@ -188,6 +188,8 @@ message ('Configuration comes later')
 add_pkg ('geany icewm rox-filer pcmanfm')
 message ('Adding and configuring LightDM')
 os.system ('python ' + dir_develop + '/ui-login/main.py')
+message ('Adding wallpaper (needed for the LightDM greeter to work)')
+os.system ('python ' + dir_develop + '/ui-wallpaper/main.py')
 message ('Enabling LightDM')
 os.system ('update-rc.d -f lightdm defaults')
 
