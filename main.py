@@ -50,6 +50,10 @@ def purge_packages (packages):
     os.system ('apt-get purge -qq ' + packages)
 
 # ==========
+message ('Disabling MDM before deleting it')
+message ('Skipping this step prevents the system from properly booting up without MDM')
+os.system ('update-rc.d -f mdm remove')
+# ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
 message ('Removing packages that come with LMDE GNOME but not LMDE Xfce')
