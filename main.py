@@ -54,7 +54,14 @@ def purge_packages (packages):
 # In the interest of expediency, sticking with the default MDM is better.
 # Fortunately, much of the MDM bloat consists of help pages for languages other than English.
 # This bloat is removed in the "final" repository.
-
+# ==========
+message ('Adding Geany as a replacement for Pluma')
+add_pkg ('geany')
+message ('Adding PCManFM as a replacement for Nautilus')
+add_pkg ('pcmanfm')
+message ('Adding IceWM and ROX as replacements for GNOME/MATE')
+message ('Note that configuring IceWM and ROX comes later.')
+add_pkg ('icewm rox-filer')
 
 # ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
@@ -180,11 +187,6 @@ purge_packages ('gtk3-engines-unico')
     #os.remove('/usr/share/icons/gnome/icon-theme.cache')
 
 # ==========
-message ('Adding Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
-message ('Configuration comes later')
-add_pkg ('geany icewm rox-filer pcmanfm')
-message ('Adding and configuring LightDM')
-os.system ('python ' + dir_develop + '/ui-login/main.py')
 message ('Creating the /usr/local/bin directory deleted in the GNOME removal process')
 os.system ('mkdir /usr/local/bin')
 
