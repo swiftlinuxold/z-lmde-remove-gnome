@@ -49,16 +49,13 @@ def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
     os.system ('apt-get purge -qq ' + packages)
 
-# PLEASE NOTE:
-# MDM must be disabled BEFORE it is removed (listed in the only_lmde_gnome.txt file).
-# Otherwise, the system will try to boot up in MDM.
-# LightDM must be added AFTER MDM is removed.
-# If you add LightDM while MDM is still in place, you get a prompt asking you to pick the default display manager.
-# After LightDM is added, it must be made the default display manager.
+# Using MDM instead of LightDM for now.
+# LightDM worked with the 201109 version of LMDE but does not work with the 201204 version.
+# In the interest of expediency, sticking with the default MDM is better.
+# Fortunately, much of the MDM bloat consists of help pages for languages other than English.
+# This bloat is removed in the "final" repository.
 
-# ==========
-message ('Disabling MDM')
-os.system ('update-rc.d -f mdm remove')
+
 # ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
