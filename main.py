@@ -78,8 +78,8 @@ purge_packages_file (dir_develop + "/remove-gnome/remove-deb/evolution.txt")
 message ('Removing remaining MATE packages')
 purge_packages ('libmateconf libmatecorba libmatenotify mate-notification-daemon')
 # ==========
-message ('Removing MDM packages')
-purge_packages ('mdm mint-mdm-themes mate-session-manager')
+message ('Removing Mint-specific MDM packages')
+purge_packages ('mint-mdm-themes mate-session-manager')
 # ==========
 message ('Removing remaining Metacity packages')
 purge_packages ('murrine-themes')
