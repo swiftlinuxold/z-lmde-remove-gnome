@@ -42,15 +42,13 @@ def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
     os.system ('apt-get purge -qq ' + packages)
 
-os.system ('python ' + dir_develop + '/apt/main.py')
-os.system ('update-rc.d -f mdm remove')
 purge_packages ('mdm')
 
 message ('Adding Geany, IceWM, ROX, and PCManFM to provide a usable desktop in the absence of GNOME')
 message ('Configuration comes later')
 add_pkg ('geany icewm rox-filer pcmanfm')
-message ('Adding LightDM')
-add_pkg ('lightdm')
+message ('Adding LightDM, Plymouth, and xserver-xephyr')
+add_pkg ('lightdm plymouth xserver-xephyr')
 message ('Enabling LightDM')
 os.system ('dpkg-reconfigure lightdm')
 
