@@ -195,6 +195,3 @@ rpm-common
 rpm2cpio
 shiki-colors-metacity-theme
 shiki-wise-theme
-virtualbox-guest-dkms
-virtualbox-guest-utils
-virtualbox-guest-x11

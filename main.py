@@ -49,14 +49,19 @@ def purge_packages (packages):
     os.system ('echo PURGING ' + packages)
     os.system ('apt-get purge -qq ' + packages)
 
-# Using MDM instead of LightDM for now.
-# LightDM worked with the 201109 version of LMDE but does not work with the 201204 version.
-# In the interest of expediency, sticking with the default MDM is better.
-# Fortunately, much of the MDM bloat consists of help pages for languages other than English.
-# This bloat is removed in the "final" repository.
+# ==========
+# Remove MDM
+purge_packages ('mdm')
+
 # ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
+
+# NOTE: The removal of certain packages in LMDE with MATE/Cinnamon can cause problems with the X server in VirtualBox.
+# Thus, the following packages are retained:
+# virtualbox-guest-dkms
+# virtualbox-guest-utils
+# virtualbox-guest-x11
 message ('Removing packages that come with LMDE GNOME but not LMDE Xfce')
 purge_packages_file (dir_develop + "/remove-gnome/remove-deb/only_lmde_gnome.txt")
 # ==========
