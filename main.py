@@ -50,10 +50,6 @@ def purge_packages (packages):
     os.system ('apt-get purge -qq ' + packages)
 
 # ==========
-# Remove MDM
-purge_packages ('mdm')
-
-# ==========
 # The only_lmde_gnome.txt file in this repository contains the list of packages in
 # LMDE GNOME but not LMDE Xfce.
 
@@ -64,6 +60,11 @@ purge_packages ('mdm')
 # virtualbox-guest-x11
 message ('Removing packages that come with LMDE GNOME but not LMDE Xfce')
 purge_packages_file (dir_develop + "/remove-gnome/remove-deb/only_lmde_gnome.txt")
+# ==========
+# Replace MDM with LightDM
+purge_packages ('mdm')
+add_pkg ('lightdm')
+
 # ==========
 message ('Adding Geany as a replacement for Pluma')
 add_pkg ('geany')
