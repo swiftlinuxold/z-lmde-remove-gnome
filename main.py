@@ -67,7 +67,6 @@ add_pkg ('pcmanfm')
 message ('Adding IceWM and ROX as replacements for GNOME/MATE')
 message ('Note that configuring IceWM and ROX comes later.')
 add_pkg ('icewm rox-filer')
-
 # ==========
 message ('Creating the /usr/local/bin directory deleted in the GNOME removal process')
 os.system ('mkdir /usr/local/bin')
